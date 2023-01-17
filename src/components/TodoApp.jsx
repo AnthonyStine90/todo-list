@@ -11,7 +11,7 @@ function TodoApp() {
 
     const addTodo = (newTask) => {
         const newTodo = {
-            // import uuid package to use for arrays instead of using the given key
+            // import uuid package to use for arrays instead of using an array index
             id: uuidv4,
             task: newTask,
             isComplete: false,
@@ -23,10 +23,11 @@ function TodoApp() {
     }
 
     const toggleTodo = (targetId) => {
+        
         const updatedTodos = todos.map(todo => {
-            // if id and target is matched it will the checkbox
+            // if id and target match 
             if (todo.id === targetId) {
-                // prevents mutating the arrary
+                // prevents mutating todo directly
                 todo = {
                     ...todo,
                     isComplete: !todo.isComplete,

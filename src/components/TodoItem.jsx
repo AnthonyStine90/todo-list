@@ -5,16 +5,18 @@ function TodoItem({ todo, toggleTodo, deleteTodo }) {
 
     return (
         <div className="mt-3 d-flex">
-            <label>{todo.task}</label>
+            <label
+                style={{ textDecoration: todo.isComplete ? 'line-through' : 'none' }}>
+                {todo.task}
+            </label>
 
             <input
                 className="form-check-input ms-5 me-5"
-                type="checkbox"              
-
-                // style={{ textDecoration: todo.isComplete ? 'text-decoration-line' : 'none'  }}
+                type="checkbox"
 
                 checked={todo.isComplete}
-                onChange={() => toggleTodo(todo.id)} 
+                
+                onChange={() => toggleTodo(todo.id)}
             />
 
             <button
